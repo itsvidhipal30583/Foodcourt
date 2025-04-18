@@ -7,6 +7,9 @@ import Login from './Components/Login'
 import Cart from './Components/Cart'
 
 import { ToastContainer } from 'react-toastify'
+import SimpleSlider from './Components/SimpleSlider'
+
+import ProtectedRoute from './context/ProtectedRoute'
 
 
 
@@ -20,6 +23,8 @@ const App = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/slider' element={< SimpleSlider />} />
+          <Route path='./prop' element={<FunctionProp/>}/>
          
 
         </Routes>

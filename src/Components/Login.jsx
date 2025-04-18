@@ -1,9 +1,11 @@
-import React, { useState} from 'react'
+import React, { useState,useEffect,useContext} from 'react'
 import { Box, Button, TextField } from '@mui/material'
 
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Navbar from './Navbar';
+import { AuthContext } from './AuthProvider';
+
 
 
 const Login = () => {
@@ -12,15 +14,21 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  const { user, login } = useContext(AuthContext);
+
   const handleLogin = (e) => {
     e.preventDefault();
-    const user = JSON.parse(localStorage.getItem('user'))
-    if (user && user.email === email && user.password === password) {
-      localStorage.setItem('loggedInUser', JSON.stringify(user));
-      toast.success('user loggedIn successfully');
-      navigate('/')
-    }
+    login(email, password)
+    navigate('/')
   }
+  
+  //   const user = JSON.parse(localStorage.getItem('user'))
+  //   if (user && user.email === email && user.password === password) {
+  //     localStorage.setItem('loggedInUser', JSON.stringify(user));
+  //     toast.success('user loggedIn successfully');
+  //     navigate('/')
+  //   }
+  // }
 
   
   

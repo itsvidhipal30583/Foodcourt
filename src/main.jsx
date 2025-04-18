@@ -6,9 +6,12 @@ import App from './App.jsx'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap-icons/font/bootstrap-icons.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle.js'
+import AuthProvider from './Components/AuthProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  <AuthProvider>
+    <StrictMode>
+      <App />
+    </StrictMode>
+  </AuthProvider>,
 )
